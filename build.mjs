@@ -9,4 +9,5 @@ await writeFile('dist/experience.html',stamp(await readFile('index.html','utf8')
 await cp('assets','dist/assets',{recursive:true});
 const entry=await readFile('who-knows-entry.html','utf8');
 await writeFile('dist/index.html',stamp(entry));
+await copyFile('login.html','dist/login.html');
 console.log('Built offline prototype (Ex not X v2) in dist/');
