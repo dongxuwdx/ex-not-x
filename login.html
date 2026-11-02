@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#7f93c4"><meta name="description" content="Ex not X：输入口令进入。"><title>Ex not X｜登录</title>
+<style>
+:root{color-scheme:light;--ink:#1b2128;--muted:#3f4a57;--focus:#1c6082;--font:-apple-system,BlinkMacSystemFont,'Helvetica Neue','PingFang SC','Microsoft YaHei',sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden}body{font-family:var(--font);color:var(--ink);background:#9fb0da;-webkit-font-smoothing:antialiased}
+button,a,input{font:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:5px}
+.city-blur{position:fixed;inset:-40px;background:url('assets/ref-city.jpg') center 40%/cover;filter:blur(28px) saturate(1.15) brightness(1.04)}
+.city-img{position:fixed;left:50%;top:0;height:100%;translate:-50% 0;display:block;user-select:none;pointer-events:none;-webkit-mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+@media(max-aspect-ratio:736/983){.city-img{width:100%;height:100%;object-fit:cover;-webkit-mask:none;mask:none}}
+.site-header{position:fixed;top:0;left:0;z-index:5;padding:20px clamp(20px,4vw,56px)}
+.site-brand{display:inline-flex;align-items:center;min-height:44px;color:#fff;font-size:24px;font-weight:700;letter-spacing:-.04em;text-decoration:none;text-shadow:0 1px 14px rgba(38,30,90,.45)}
+main{position:fixed;inset:0;z-index:2;display:flex;justify-content:center;align-items:center}
+.membrane{position:relative;width:min(440px,90vw);border-radius:34px;padding:36px 34px 34px;
+ background:linear-gradient(140deg,rgba(255,255,255,.55),rgba(255,255,255,.22) 48%,rgba(255,255,255,.34));
+ -webkit-backdrop-filter:blur(16px) saturate(170%) brightness(1.06);backdrop-filter:blur(16px) saturate(170%) brightness(1.06);
+ border:1px solid rgba(255,255,255,.75);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -1px 0 rgba(255,255,255,.35),inset 0 0 0 1px rgba(255,255,255,.12),inset 18px 0 40px -30px rgba(255,255,255,.9),0 40px 80px -36px rgba(36,22,80,.55)}
+.membrane::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.42) 40%,transparent 52%),radial-gradient(120% 70% at 0% 0%,rgba(255,255,255,.35),transparent 55%);mix-blend-mode:soft-light}
+.membrane::after{content:'';position:absolute;inset:6px;border-radius:29px;pointer-events:none;border:1px solid rgba(255,255,255,.28)}
+.label{font-size:13px;color:var(--muted);font-weight:500;margin:0 0 18px}
+h1{font-size:28px;line-height:1.3;letter-spacing:-.02em;font-weight:650;margin:0;text-align:center}
+.note{color:var(--muted);line-height:1.6;font-size:15px;margin:10px 0 0;text-align:center}
+form{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;margin-top:26px}
+input{width:100%;min-height:50px;padding:12px 18px;border-radius:18px;font-size:16px;color:var(--ink);text-align:center;letter-spacing:.12em;outline:none;
+ background:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.8);box-shadow:inset 0 2px 8px -4px rgba(30,20,60,.35);transition:border-color .2s,box-shadow .2s}
+input::placeholder{color:#6a7482;letter-spacing:.02em}
+input:focus{border-color:#fff;box-shadow:inset 0 2px 8px -4px rgba(30,20,60,.35),0 0 0 3px rgba(28,96,130,.35)}
+.enter{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:18px;font-size:15px;font-weight:650;cursor:pointer;color:#2a4a6c;
+ background:linear-gradient(160deg,rgba(170,204,240,.62),rgba(92,138,196,.32));
+ -webkit-backdrop-filter:blur(10px) saturate(180%);backdrop-filter:blur(10px) saturate(180%);border:1px solid rgba(255,255,255,.7);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.95),inset 0 -8px 16px -10px rgba(255,255,255,.6),0 10px 24px -14px rgba(30,20,60,.5);transition:transform .2s,filter .2s}
+.enter::before{content:'';position:absolute;inset:1px 1px 50% 1px;border-radius:17px 17px 40% 40%/17px 17px 12px 12px;background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,0));pointer-events:none}
+.enter:hover{transform:translateY(-3px);filter:brightness(1.05)}.enter:active{transform:scale(.97)}
+.error{min-height:1.4em;margin:0;font-size:14px;color:#7b3439;text-align:center}
+.shake{animation:shake .4s}
+@keyframes shake{20%,60%{translate:-8px 0}40%,80%{translate:8px 0}}
+.is-opening main{opacity:0;transform:scale(.94);transition:transform .55s ease,opacity .55s ease}
+.is-opening .city-img,.is-opening .city-blur{filter:blur(6px) brightness(1.1);transition:filter .6s}
+@media(max-width:700px){.site-brand{font-size:21px}.membrane{border-radius:28px;padding:30px 24px 28px}h1{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){.membrane{background:#f6f8fbf0;-webkit-backdrop-filter:none;backdrop-filter:none}}
+</style>
+</head>
+<body>
+<div class="city-blur" aria-hidden="true"></div><img class="city-img" src="assets/ref-city.jpg" alt="" draggable="false">
+<header class="site-header"><span class="site-brand">Ex not X</span></header>
+<main>
+ <section id="card" class="membrane" aria-labelledby="login-heading">
+  <p class="label">在进入之前</p>
+  <h1 id="login-heading">说出暗号</h1>
+  <p class="note">只有知道的人，才能顺流而下</p>
+  <form id="login-form" novalidate>
+   <input id="password" type="password" autocomplete="current-password" placeholder="输入口令" aria-label="口令" aria-describedby="login-error" autofocus>
+   <button class="enter" type="submit">进入</button>
+   <p id="login-error" class="error" role="alert"></p>
+  </form>
+ </section>
+</main>
+<script>
+(()=>{
+// Prototype gate: a fixed passcode kept in the page. Not real security.
+const PASSWORD='JD',KEY='exnotx-auth';
+const next=new URLSearchParams(location.search).get('next');
+const target=next&&/^[\w.-]+\.html([?#].*)?$/.test(next)?next:'index.html';
+const form=document.querySelector('#login-form'),input=document.querySelector('#password'),error=document.querySelector('#login-error'),card=document.querySelector('#card');
+form.addEventListener('submit',event=>{
+ event.preventDefault();
+ if(input.value.trim()===PASSWORD){
+  try{localStorage.setItem(KEY,'1');}catch{}
+  error.textContent='';document.body.classList.add('is-opening');
+  setTimeout(()=>location.replace(target),matchMedia('(prefers-reduced-motion: reduce)').matches?0:550);
+ }else{
+  error.textContent=input.value.trim()?'暗号不对，再想想':'先输入口令';
+  card.classList.remove('shake');void card.offsetWidth;card.classList.add('shake');
+  input.select();
+ }
+});
+})();
+</script>
+</body>
+</html>
