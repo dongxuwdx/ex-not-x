@@ -74,7 +74,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b
 // ---------- guides ----------
 const GUIDES={
  menu:{title:'双手之间',rows:[['swipe-left','← 左滑','Who knows：看看你留下的痕迹——漂出去的话、推荐信、举过的鸭掌'],['swipe-right','右滑 →','写点什么：一封推荐信、一段自由讨论，或者从“无从讲起”开始'],['swipe-up','↑ 上滑','回到漂流论坛，继续看别人怎么说']]},
- river:{title:'漂流论坛',rows:[['flick-up','轻轻上滑','刷下一批今日漂流的小鸭'],['big-up','大幅上滑','转到自由论坛：推荐信与恋爱经历'],['flick-down','轻轻下滑','倒回刚刚漂过去的帖子'],['big-down','大幅下滑','回到双手之间'],['drag-duck','拎起小鸭','拖到左右岸边，帖子就留在岸上不会漂走']]}
+ river:{title:'漂流论坛',rows:[['flick-up','轻轻上滑','刷下一批今日漂流的小鸭'],['big-up','大幅上滑','超过半屏：转到自由论坛'],['flick-down','轻轻下滑','倒回刚刚漂过去的帖子'],['big-down','大幅下滑','超过半屏：回到双手之间'],['drag-duck','拎起小鸭','拖到左右岸边，帖子就留在岸上不会漂走']]}
 };
 function showGuide(kind){
  seenGuide[kind]=true;const g=GUIDES[kind],layer=$('#guide-layer');
@@ -232,6 +232,8 @@ function setHanded(lefty){
 installEdgeReturns($$('.edge-return'),()=>go('menu'));
 
 // ---------- gestures ----------
+// A swipe longer than half the screen height counts as a big swipe (drag and wheel alike).
+const BIG_SWIPE=.5;
 let drag=null,suppressClick=false;
 document.addEventListener('click',e=>{if(suppressClick&&e.detail!==0){e.preventDefault();e.stopImmediatePropagation();suppressClick=false;}},true);
 document.addEventListener('pointerdown',e=>{
@@ -259,7 +261,7 @@ document.addEventListener('pointerup',e=>{
   if(start.lifting){document.body.classList.remove('shore-hot','shore-hot-left');const where=world.river.endDrag(e.clientX);if(where==='shore')pinToShore(start.duck.post);suppressClick=true;setTimeout(()=>suppressClick=false,400);return;}
   if(!start.moved){if(start.duck)openPost(start.duck.post);return;}
   suppressClick=true;setTimeout(()=>suppressClick=false,400);
-  if(Math.abs(dy)>Math.abs(dx)&&Math.abs(dy)>35){const big=Math.abs(dy)>Math.max(170,innerHeight*.24);riverGesture(dy<0?'up':'down',big);}
+  if(Math.abs(dy)>Math.abs(dx)&&Math.abs(dy)>35){const big=Math.abs(dy)>innerHeight*BIG_SWIPE;riverGesture(dy<0?'up':'down',big);}
   return;
  }
  if(!start.moved)return;suppressClick=true;setTimeout(()=>{suppressClick=false},500);
@@ -277,7 +279,7 @@ document.addEventListener('wheel',e=>{
  if(state.screen==='menu'){e.preventDefault();if(e.deltaY>8&&performance.now()>wheelLock){wheelLock=performance.now()+700;go('river');}return;}
  if(state.screen!=='river')return;e.preventDefault();
  wheelAcc+=e.deltaY;clearTimeout(wheelTimer);
- if(!wheelFired&&Math.abs(wheelAcc)>650){wheelFired=true;riverGesture(wheelAcc>0?'up':'down',true);}
+ if(!wheelFired&&Math.abs(wheelAcc)>innerHeight*BIG_SWIPE){wheelFired=true;riverGesture(wheelAcc>0?'up':'down',true);}
  wheelTimer=setTimeout(()=>{if(!wheelFired&&Math.abs(wheelAcc)>30)riverGesture(wheelAcc>0?'up':'down',false);wheelAcc=0;wheelFired=false;},170);
 },{passive:false});
 document.addEventListener('keydown',e=>{
