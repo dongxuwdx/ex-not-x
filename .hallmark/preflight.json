@@ -1,0 +1,16 @@
+{
+  "preserved": [
+    "audio_1.md: mirrored prompt, rupture, dual hands, profiles, letters, writing",
+    "audio_2.md: stance ducks, likes scale, pale glass/ceramic forest, mixed free stream",
+    "audio_3.md: pinned topic and closed gesture paths",
+    "visual-setting DOCX: pale materials and physical interaction references"
+  ],
+  "introduced": [
+    "Who knows as temporary project title",
+    "fictional sample topic, posts and profiles",
+    "procedural 3D models instead of final assets",
+    "three prototype presentation structures"
+  ],
+  "scope": "local disposable interaction prototype",
+  "entry": "dist/index.html"
+}

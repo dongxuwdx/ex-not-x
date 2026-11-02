@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Ex not X：双手之间，顺流而遇。"><meta name="theme-color" content="#2b3a35"><title>Ex not X｜双手之间，顺流而遇</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="navigation.css"><link rel="stylesheet" href="v2.css"><script defer src="app.js"></script></head>
+<body data-screen="menu">
+<a class="skip" href="#main">跳到主要内容</a>
+<div id="world" aria-hidden="true"></div>
+<header class="topbar site-header">
+ <a class="site-brand" href="index.html" aria-label="Ex not X，回到今日问题">Ex not X</a>
+</header>
+<div id="hand-art-layer">
+ <button id="hand-art-left" class="hand-art hand-art-left is-mech" data-go="profile" aria-label="左手：打开 Who knows 数字痕迹"><span class="circuit" aria-hidden="true"></span><img src="assets/hand-left-graphite-v2.png" alt="" draggable="false"><span class="glass-sheen" aria-hidden="true"></span></button>
+ <button id="hand-art-right" class="hand-art hand-art-right" data-go="write" aria-label="右手：打开文字创作"><span class="circuit" aria-hidden="true"></span><img src="assets/hand-right-natural-v2.png" alt="" draggable="false"><span class="glass-sheen" aria-hidden="true"></span></button>
+</div>
+<main id="main">
+<section id="menu-screen" class="screen" hidden>
+ <div class="menu-heading"><p id="stance-note">让想法，留在此刻。</p><h1>双手之间，都是你。</h1><p>一只手留住痕迹，一只手写下真实。</p></div>
+ <button id="left-hand-target" class="hand-target" data-go="profile"><span class="direction">←</span><strong>Who knows</strong><span>左滑，看看留下的痕迹</span></button>
+ <button id="right-hand-target" class="hand-target" data-go="write"><span class="direction">→</span><strong>写点什么</strong><span>右滑，让文字成为你</span></button>
+ <button class="river-entry" data-go="river"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 15 7-7 7 7"/></svg><span>上滑，回到漂流论坛</span></button>
+ <button class="help-dot" type="button" data-guide="menu" aria-label="查看双手之间的玩法">?</button>
+</section>
+
+<section id="river-screen" class="screen" hidden>
+ <div class="river-head" aria-live="polite">
+  <p class="river-kind" id="river-kind">今日漂流</p>
+  <h1 id="river-title">恋爱中，需要分享所有社交密码吗？</h1>
+  <div id="vote-line" class="vote-line"></div>
+ </div>
+ <div id="duck-labels" aria-label="漂流帖子"></div>
+ <div class="shore shore-left" aria-hidden="true"><span>拎到岸边</span></div><div class="shore shore-right" aria-hidden="true"><span>拎到岸边</span></div>
+ <aside id="shelf" class="shelf" aria-label="岸边留住的帖子" hidden><h2>岸边</h2><ul id="shelf-list"></ul></aside>
+ <div class="river-foot">
+  <div class="river-tabs" role="group" aria-label="论坛"><button data-feed="prompt" class="selected" aria-pressed="true">今日漂流</button><button data-feed="free" aria-pressed="false">自由论坛</button></div>
+ </div>
+ <div id="gesture-chip" class="gesture-chip" aria-hidden="true"></div>
+ <button class="help-dot" type="button" data-guide="river" aria-label="查看漂流论坛的玩法">?</button>
+ <div id="reading-feed" aria-label="文字帖子列表"></div>
+</section>
+
+<section id="profile-screen" class="screen sheet-screen" hidden>
+ <div class="desert-blur" aria-hidden="true"></div>
+ <button type="button" class="edge-return is-mech" data-go="menu" aria-label="拉出机械手，回到双手之间"><span class="circuit" aria-hidden="true"></span><img src="assets/hand-left-graphite-v2.png" alt="" draggable="false"><span class="glass-sheen" aria-hidden="true"></span></button>
+ <div class="profile-scroll" id="profile-scroll">
+  <div class="poster" id="poster">
+   <img class="poster-img" src="assets/ref-desert-horse.jpg" alt="" draggable="false">
+   <div class="poster-hero">
+    <div class="profile-title"><p class="section-intro">留在水面上的痕迹</p><h1 id="profile-name">Who knows</h1><p id="profile-whisper" class="whisper"></p></div>
+    <button id="edit-profile" class="edit-profile" type="button">编辑资料</button>
+    <div class="ufo-beam" aria-hidden="true"></div>
+    <div class="ufo-photo" aria-hidden="true"><img src="assets/ref-ufo.png" alt="" draggable="false"><div class="ufo-lights" id="ufo-lights"></div><div class="ufo-belly"></div></div>
+    <div class="tag-cylinder" id="tag-cylinder" aria-label="个人标签"></div>
+    <div class="stance-report" id="stance-report"></div>
+   </div>
+   <div class="profile-tabs" role="tablist" aria-label="个人内容"><button role="tab" data-profile="comments" class="selected">漂出去的话</button><button role="tab" data-profile="letters">推荐信</button><button role="tab" data-profile="paws">举过的鸭掌</button></div>
+   <div id="profile-content" class="profile-content"></div>
+  </div>
+ </div>
+</section>
+
+<section id="write-screen" class="screen sheet-screen" hidden>
+ <div class="desktop" aria-hidden="true">
+  <button class="desk-icon" type="button" tabindex="-1" data-desk="letter"><span class="folder"></span>LETTERS</button>
+  <button class="desk-icon" type="button" tabindex="-1" data-desk="free"><span class="folder"></span>STORIES</button>
+  <button class="desk-icon" type="button" tabindex="-1" data-desk="basket"><span class="folder basket"></span>卡片篮</button>
+ </div>
+ <div class="win win-notes" aria-hidden="true"><div class="win-bar pink"><span>NOTES</span><i></i><i></i><i></i></div><p id="notes-tip">从一个具体的瞬间开始。写不下去也没关系，可以先停在这里。</p></div>
+ <button type="button" class="edge-return right-edge" data-go="menu" aria-label="拉出手，回到双手之间"><img src="assets/hand-right-natural-v2.png" alt="" draggable="false"></button>
+ <div class="win win-main">
+  <div class="win-bar"><span id="win-title">LETTER - 只有你和这只鸭知道.txt</span><i></i><i></i><button type="button" class="win-x" data-go="menu" aria-label="关闭，回到双手之间">×</button></div>
+  <div class="workspace write-workspace">
+   <div class="workspace-heading"><div><p class="section-intro">写下来的，更接近真实。</p><h1>只有你和这只鸭知道</h1></div><span class="small-note">仅保存在这台设备上</span></div>
+   <div class="profile-tabs" role="group" aria-label="创作类型"><button data-compose="letter" class="selected">一封推荐信</button><button data-compose="free">一段自由讨论</button><button data-compose="nowhere">无从讲起</button></div>
+   <form id="compose-form">
+    <div id="optional-fields" hidden>
+     <div class="chip-group" data-field="duration"><span class="chip-label">一起走了多久</span><div class="chips"><button type="button" data-v="🌱 几个月">🌱 几个月</button><button type="button" data-v="🌿 一两年">🌿 一两年</button><button type="button" data-v="🌳 三年以上">🌳 三年以上</button><button type="button" data-v="🌊 说不清">🌊 说不清</button></div></div>
+     <div class="chip-group" data-field="communication"><span class="chip-label">吵架的时候</span><div class="chips"><button type="button" data-v="🐢 先冷静">🐢 先冷静</button><button type="button" data-v="🗣️ 当场说开">🗣️ 当场说开</button><button type="button" data-v="🫥 冷战">🫥 冷战</button><button type="button" data-v="🤝 一人先让步">🤝 一人先让步</button><button type="button" data-v="🌀 每次都不一样">🌀 每次都不一样</button></div></div>
+     <div class="chip-group" data-field="money"><span class="chip-label">钱的事</span><div class="chips"><button type="button" data-v="💳 各自独立">💳 各自独立</button><button type="button" data-v="🫙 一起存钱">🫙 一起存钱</button><button type="button" data-v="⚖️ AA">⚖️ AA</button><button type="button" data-v="🎁 谁有谁出">🎁 谁有谁出</button></div></div>
+     <label class="chip-group"><span class="chip-label">怎么陪伴彼此</span><input name="time" placeholder="TA 难过的时候，你通常会……" maxlength="60"></label>
+    </div>
+    <label class="title-label" for="post-title">标题</label><input id="post-title" maxlength="48" placeholder="写给那个曾认真相爱的人" required>
+    <div class="paper-wrap"><label class="sr-only" for="post-body">正文</label><textarea id="post-body" class="letter-paper" minlength="5" required></textarea>
+     <button type="button" id="idle-hint" class="idle-hint" hidden>不知道从哪说起？去水里捞一张卡 →</button></div>
+    <div class="compose-footer"><span id="word-count">信纸还空着，慢慢来</span><button type="submit" class="pill">放一只小鸭，随水漂流 <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 14-7-7 14-2-7-5 0m5 0 9-7"/></svg></button></div>
+    <p class="form-note">原型演示：发出的内容只在本次浏览中可见，刷新后清空；卡片篮会保存在这台设备上。</p>
+   </form>
+   <div id="nowhere" hidden></div>
+  </div>
+ </div>
+ <div class="buddy" id="buddy" aria-hidden="true"><svg viewBox="0 0 120 110"><g class="buddy-body"><ellipse cx="58" cy="78" rx="44" ry="26" fill="#ffd447"/><path d="M18 70 Q6 58 16 50 Q22 62 30 64Z" fill="#ffc72c"/><ellipse cx="54" cy="80" rx="20" ry="11" fill="#ffc72c" opacity=".7"/></g><g class="buddy-head"><circle cx="80" cy="44" r="22" fill="#ffd447"/><circle cx="87" cy="38" r="3.2" fill="#1b1b22" class="buddy-eye"/><path class="buddy-beak" d="M98 44 Q114 46 100 52 Q96 50 98 44Z" fill="#ff8a2a"/><ellipse class="buddy-yawn" cx="101" cy="49" rx="5" ry="0" fill="#7a2a2a"/></g></svg><span class="buddy-bubble" id="buddy-bubble"></span></div>
+ <nav class="taskbar" aria-label="桌面任务栏"><button type="button" class="menu-btn" data-go="menu">MENU</button><span class="tb-folder"></span><span class="tb-folder"></span><span class="tb-spacer"></span><span class="tb-chat">💬</span><span id="clock" class="tb-clock"></span></nav>
+</section>
+</main>
+
+<div id="guide-layer" class="guide-layer" hidden></div>
+<div id="send-anim" class="send-anim" hidden></div>
+<dialog id="detail-dialog"><div class="dialog-tools"><div class="more-wrap"><button type="button" class="more-btn icon-btn" id="more-btn" aria-label="更多" aria-haspopup="menu" aria-expanded="false">⋯</button><div class="more-menu" id="more-menu" role="menu" hidden><button role="menuitem" type="button" data-more="less">少给我看这类</button><button role="menuitem" type="button" data-more="report">举报</button></div></div><button class="dialog-close icon-btn" aria-label="关闭，回到岸边" data-tip="回到岸边">×</button></div><div id="detail-content"></div></dialog>
+<div id="toast" role="status" aria-live="polite"><span id="toast-text"></span><button type="button" id="toast-action" hidden></button></div>
+<noscript><div class="noscript-note">此交互原型需要 JavaScript。</div></noscript>
+</body></html>

@@ -1,0 +1,34 @@
+[
+  {
+    "date": "2026-10-29",
+    "scope": "app",
+    "shape": "app screen",
+    "theme": "refract",
+    "axes": "light/grotesk-sans/cool",
+    "hero": "reversible floating prompt",
+    "nav": "edge-aligned",
+    "footer": "status rail with prototype variant control",
+    "imagery": "live procedural WebGL product",
+    "photos": [],
+    "entry": "dist/index.html",
+    "fingerprint": "Who knows: mirrored opinion to hands to ceramic duck river",
+    "sections": [
+      "prompt",
+      "hands",
+      "profile",
+      "composer",
+      "river"
+    ],
+    "signature": "hands part into a river of duck posts",
+    "waived": [
+      "80: procedural interactive product requested by the brief"
+    ],
+    "prompt": "Local interactive prototype from supplied voice transcripts and visual settings",
+    "validation": {
+      "build": "passed",
+      "staticLint": "0 FAIL; remaining warnings are intentional stance choices and glass surfaces",
+      "browser": "core flows and 390px/desktop layouts checked through localhost",
+      "fileUrl": "browser automation blocks file protocol; offline assets statically checked"
+    }
+  }
+]

@@ -1,0 +1,16 @@
+# River assets: source and generation prompts
+
+Generated with the built-in image generator using the user's supplied annotated forest-and-duck reference as visual guidance. The blue annotations were excluded. The backdrops are images; the duck cutout is separately positioned and interactive in the prototype.
+
+## forest-wide
+
+Create a photorealistic wide landscape backdrop for an interactive virtual duck stream. Use the supplied reference as the strict aesthetic and composition reference: straight tall mature redwood trunks framing both sides, dark dense conifer foliage overhead, late twilight blue sky in the central opening, deep green mossy banks, pink flowering ornamental trees in the distance, a shallow winding stream/path running from the bottom foreground to a far central vanishing point. The stream floor is unmistakably pink and mauve CHECKERBOARD squares seen through gently rippling reflective water, with alternating pink and pale lavender tiles, tapering in perspective into the distance. Faithfully match the reference's atmospheric dusky photographic look and exact overall palette, not bright daytime, not pastel white ceramics, not illustrated. Wider horizontal frame, forest and trees extend from edge to edge, centered river and vanishing point, immersive perspective, realistic photography, no camera equipment. Leave the stream clear for separately composited interactive ducks: absolutely NO ducks or birds. Remove the blue hand-drawn annotation rectangles from the supplied reference. No text, no logos, no watermarks, no people, no interface.
+
+## forest-tall
+
+Create a photorealistic tall PORTRAIT backdrop for a mobile interactive duck stream. Use the supplied image as a strict aesthetic and composition reference: tall slim redwood trunks lining both sides, dark green dense conifer forest, blue dusk sky visible high in the center, pink ornamental flowering trees dotted along green mossy banks, a shallow river/path reaching from foreground to distant center. The river is a clearly visible PINK AND PALE LAVENDER CHECKERBOARD tiled surface seen beneath a thin layer of reflective rippling water; perspective recedes between the trees into the forest. Preserve the reference's dusk lighting, colors, and straight-on photographic perspective, almost identical mood, not stylized illustration and not white ceramic or daylight. Leave stream clear to overlay interactive ducks: absolutely no ducks or birds. Do not copy any blue hand-drawn rectangles from the supplied reference, no text, no interface, no people, no watermark.
+
+## yellow-duck
+
+Isolated transparent PNG character asset for a photorealistic interactive forest stream. Match the little yellow RUBBER DUCKS in the supplied reference image as closely as possible: classic small yellow bath duck, a rounded smooth glossy yellow rubber body, round yellow head, tiny black dot eyes and a short orange bill, facing gently toward camera at a slight 3/4 angle, friendly simple toy silhouette and realistic small molded wing. Soft twilight light with subtle blue and pink reflections from a pink checkerboard stream. Exactly one full duck with all edges visible and transparent alpha background; no water, no shadows outside the duck, no additional objects, no people, no annotation rectangles, no text, no logos.
+

@@ -1,0 +1,12 @@
+import {build} from 'esbuild';
+import {copyFile,mkdir,cp,readFile,writeFile} from 'node:fs/promises';
+await mkdir('dist',{recursive:true});
+await build({entryPoints:['src/app.js'],bundle:true,minify:true,outfile:'dist/app.js',format:'iife',target:'es2020'});
+for(const f of ['styles.css','tokens.css','navigation.css','v2.css','entry.js']) await copyFile(f,'dist/'+f);
+const v=Date.now().toString(36);
+const stamp=html=>html;
+await writeFile('dist/experience.html',stamp(await readFile('index.html','utf8')));
+await cp('assets','dist/assets',{recursive:true});
+const entry=await readFile('who-knows-entry.html','utf8');
+await writeFile('dist/index.html',stamp(entry));
+console.log('Built offline prototype (Ex not X v2) in dist/');

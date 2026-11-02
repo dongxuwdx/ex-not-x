@@ -1,0 +1,24 @@
+# Reference-led hand assets, version 2
+
+Generated with the built-in image_gen tool on 2026-10-29 from the user's supplied photographic reference of two reaching hands. These are transparent raster cutouts, animated as independent layers. They replace the original capsule-based procedural hand meshes; they are not rigged, volumetric 3D models.
+
+## Assets
+
+- hand-left-graphite-v2.png: reference left-arm gesture interpreted in graphite metal.
+- hand-right-natural-v2.png: reference right-arm gesture with real skin detail.
+- hand-pointer-natural-v2.png: matching natural pointing pose for the prompt.
+
+## Final generation prompts
+
+### right
+
+Use case: photorealistic-natural. Asset: a single transparent cutout of a realistic adult RIGHT hand and forearm, for an interactive website. Input image is a pose and anatomy reference, not an edit target. Closely follow the RIGHT arm in the reference: forearm enters horizontally from the RIGHT edge, palm turned slightly toward camera/upward, wrist relaxed, index finger reaching toward the LEFT, middle finger gently extended downward-left, other fingers naturally curled. An intimate reaching gesture, anatomically correct five fingers, elegant natural proportions, visible soft knuckle folds, subtle tendons, detailed fine skin texture and natural nails. Skin is warm neutral medium-light, softly desaturated, not glossy. Forearm should taper naturally from a crop at the right edge to wrist, with enough long forearm for offscreen placement. Entire fingers and palm must be inside frame with margin. Composition horizontal wide, hand occupies the left half and forearm continues to right edge. Soft photographic studio lighting from upper left, grounded gentle shadows ON THE SKIN, dimensional but not harsh, no cast shadow outside cutout. Preserve the understated photographic quality of the supplied reference, not a mannequin or 3D toy. Exactly one arm/hand, isolated on TRUE TRANSPARENT alpha background; no background pixels, no pedestal, no typography, no jewelry, no floating detached parts. High resolution production-ready UI cutout.
+
+### left
+
+Use case: stylized-concept with photorealistic anatomy. Asset: a single transparent cutout of a LEFT hand and forearm, for an interactive website. Input image is pose/anatomy reference. Match the LEFT arm silhouette in the reference very closely: forearm enters horizontally from LEFT edge and reaches toward RIGHT, dorsal back of hand facing camera, index finger reaching right, thumb slightly raised, remaining fingers gently curled in a natural expressive reaching gesture. Preserve anatomically convincing continuous fingers, tendons, knuckles, and natural wrist proportions, five fingers total. Reinterpret this left hand as a beautifully crafted dark graphite and blackened titanium cybernetic hand with subtle brushed metal, continuous organic sculptural surfaces and a few fine recessed articulation seams integrated into natural finger creases. It must read as the real reference hand translated into dark metal, not a robot glove assembled from tubes, capsules, exposed ball joints, bulky armor or skeletal rods. Fine satin graphite with restrained silver edge highlights. Long forearm extending off left edge, palm and fingertips fully visible with margin. Soft studio light from upper right, premium photographic rendering with dimensional highlights. Horizontal wide composition, hand in right half and forearm runs to left edge. Exactly one arm/hand isolated on TRUE TRANSPARENT alpha background, no scene or floor, no typography, no jewelry, no machinery elsewhere, no disconnected floating parts.
+
+### pointer
+
+Use case: photorealistic-natural. Asset: single realistic adult right hand with forearm, a transparent UI cutout used to point into a floating prompt screen. Input image is reference for real human anatomy, skin detail and relaxed reaching gesture. Single hand and long forearm enter from LOWER RIGHT edge, forearm diagonally upward-left, hand at upper-left part of image, index finger extends toward UPPER LEFT in an elegant relaxed pointing/reaching gesture, middle finger slightly bent, other fingers softly curled, thumb relaxed. Palm turned partly toward camera. The gesture should feel like the right hand in the reference gently reaching forward to touch a surface. Exactly five anatomically correct fingers, natural knuckle folds and tendons, realistic medium-light warm neutral skin, soft desaturated photographic lighting, natural short fingernails. Crop only forearm at lower-right edge. Entire hand and fingers fully visible with generous empty margin above and left. High-quality photographic skin with gentle subsurface warmth, no toy look, no capsule geometry. TRUE TRANSPARENT alpha background. No background, no props, no UI, no lettering, no outside drop shadow. Portrait composition, a natural lifelike forearm and pointing hand only.
+
