@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><script>try{var l=JSON.parse(localStorage.getItem('exnotx-lang')||'"both"');l=(l==='zh'||l==='en')?l:'both';document.documentElement.dataset.lang=l;if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.dataset.lang='both'}</script><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>try{if(localStorage.getItem('exnotx-auth')!=='1')location.replace('login.html?next=journal.html')}catch{}</script>
 <title>Ex not X · 留学生情感社区｜我的日记</title>
 <link rel="stylesheet" href="site.css">
@@ -28,9 +28,9 @@
 <main class="narrow" style="padding-bottom:70px">
  <section class="page-hero">
   <div class="hero-stack">
-   <p class="kicker">我的日记 · Journal</p>
-   <h1 class="title-zh">只有你看得到的地方</h1>
-   <p class="title-en">A place only you can see</p>
+   <p class="kicker"><span class="zh">我的日记</span><span class="en">Journal</span></p>
+   <h1 class="title-zh zh">只有你看得到的地方</h1>
+   <p class="title-en en">A place only you can see</p>
    <span class="script" aria-hidden="true">Dear me</span>
   </div>
  </section>
@@ -40,15 +40,15 @@
 <script src="site.js"></script>
 <script>
 (function(){
- const {store,esc,toast}=EX;let list=store.get('journal',[]);const notes=store.get('own-reflections',{});
- const KEEP={private:'仅自己可见 Private',anon:'已匿名发布 Shared anonymously',named:'已以昵称发布 Shared with name'};
+ const {store,esc,toast,L,T,pick}=EX;let list=store.get('journal',[]);const notes=store.get('own-reflections',{});
+ const KEEP={private:L('仅自己可见','Private'),anon:L('已匿名发布','Shared anonymously'),named:L('已以昵称发布','Shared with name')};
  const draw=()=>{const el=document.getElementById('entries');
   el.innerHTML=list.length?list.map(j=>`<li class="entry"><span class="mini" aria-hidden="true"><i></i><i></i></span>
-   <div><span class="meta">${esc(j.date)} · ${KEEP[j.keep]||KEEP.private}</span><h2>You &amp; ${esc(j.summary.name)} · ${esc(j.summary.you.zh)} × ${esc(j.summary.them.zh)}</h2>
-   <span class="meta">${esc(j.summary.headline[0])}</span>${(notes[j.id]||j.own)?`<p class="own">“${esc(notes[j.id]||j.own)}”</p>`:''}</div>
-   <div class="acts"><a class="btn" href="review.html?id=${encodeURIComponent(j.id)}">打开 Open</a><button class="del" type="button" data-del="${esc(j.id)}">删除 Delete</button></div></li>`).join('')
-  :`<li class="none">日记还是空的。做一次感情测评，把总结存进来吧。<br><span class="en">Your journal is empty. Take the quiz and save your summary here.</span><br><a class="btn solid" href="quiz.html">开始测评 Start the quiz</a></li>`};
- document.addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(!b)return;if(!confirm('删除这篇日记？ Delete this entry?'))return;list=list.filter(j=>j.id!==b.dataset.del);store.set('journal',list);draw();toast('已删除 · Deleted')});
+   <div><span class="meta">${esc(j.date)} · ${KEEP[j.keep]||KEEP.private}</span><h2>You &amp; ${esc(j.summary.name)} · ${esc(pick(j.summary.you.zh,j.summary.you.en))} × ${esc(pick(j.summary.them.zh,j.summary.them.en))}</h2>
+   <span class="meta">${esc(pick(j.summary.headline[0],j.summary.headline[1]))}</span>${(notes[j.id]||j.own)?`<p class="own">“${esc(notes[j.id]||j.own)}”</p>`:''}</div>
+   <div class="acts"><a class="btn" href="review.html?id=${encodeURIComponent(j.id)}">${L('打开','Open')}</a><button class="del" type="button" data-del="${esc(j.id)}">${L('删除','Delete')}</button></div></li>`).join('')
+  :`<li class="none">${L('日记还是空的。做一次感情测评，把总结存进来吧。','Your journal is empty. Take the quiz and save your summary here.')}<br><a class="btn solid" href="quiz.html">${L('开始测评','Start the quiz')}</a></li>`};
+ document.addEventListener('click',e=>{const b=e.target.closest('[data-del]');if(!b)return;if(!confirm(T('删除这篇日记？','Delete this entry?')))return;list=list.filter(j=>j.id!==b.dataset.del);store.set('journal',list);draw();toast(T('已删除','Deleted'))});
  draw();
 })();
 </script>

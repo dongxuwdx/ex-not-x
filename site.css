@@ -25,6 +25,7 @@ img{max-width:100%;display:block}
 /* language modes: both (default) / zh / en */
 html[data-lang="zh"] .en{display:none!important}
 html[data-lang="en"] .zh{display:none!important}
+html[data-lang="both"] span.zh+span.en{margin-left:.35em}
 
 /* small spaced uppercase label */
 .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--blue)}
@@ -47,7 +48,10 @@ html[data-lang="en"] .zh{display:none!important}
 .util a,.util button{padding:6px 0}
 .util a:hover,.util button:hover{color:var(--blue)}
 .util .journal{color:var(--blue)}
-.lang-btn b{font-weight:700}
+.lang-switch{display:inline-flex;align-items:center;gap:5px}
+.lang-switch button{padding:6px 2px;color:var(--ink)}
+.lang-switch button[aria-pressed="true"]{color:var(--blue);font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.footer-base button[aria-pressed="true"]{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .site-nav{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;padding:6px 0 0}
 .site-nav a{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600;padding:8px 0 10px;border-bottom:2px solid transparent;transition:border-color .2s}
 .site-nav a:hover{border-bottom-color:rgba(62,85,215,.35)}
@@ -90,7 +94,7 @@ html[data-lang="en"] .zh{display:none!important}
 .text-link:hover{text-decoration:underline}
 .photo{position:relative;background:var(--stripes);color:#fff;overflow:hidden}
 .photo .tag{position:absolute;left:10px;top:8px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#e9e9e9;opacity:.9}
-.chip{display:inline-flex;align-items:center;height:20px;padding:0 7px;font-size:10px;letter-spacing:.12em;font-weight:700;text-transform:uppercase;border:1.5px solid var(--ink);color:var(--ink)}
+.chip{display:inline-flex;align-items:center;gap:.3em;height:20px;padding:0 7px;font-size:10px;letter-spacing:.12em;font-weight:700;text-transform:uppercase;border:1.5px solid var(--ink);color:var(--ink)}
 .chip.blue{background:var(--blue);border-color:var(--blue);color:#fff}
 .chip.black{background:var(--ink);color:#fff}
 .cat{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--blue)}
@@ -135,3 +139,8 @@ html[data-lang="en"] .zh{display:none!important}
 @media (min-width:1000px){.scale-up{zoom:1.3}}
 @media (min-width:1400px){.scale-up{zoom:1.4}}
 @media (min-width:1200px){.site-footer>.wrap{zoom:1.25;width:880px}}
+html[data-lang="en"] .page-hero .title-en.en{font-size:24px;font-weight:800;color:var(--ink);letter-spacing:.01em;text-transform:none;margin:8px 0 6px}
+/* shown only in the bilingual view (e.g. the English line under a Chinese heading) */
+html[data-lang="zh"] .both-only,html[data-lang="en"] .both-only{display:none!important}
+/* shown only in one single-language view */
+html:not([data-lang="zh"]) .only-zh,html:not([data-lang="en"]) .only-en{display:none!important}

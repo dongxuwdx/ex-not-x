@@ -99,3 +99,9 @@
  .side.a,.side.b{align-items:center;text-align:center}
  .side.a .result .bar i{margin-left:0}
 }
+
+/* English-only view: the English lines become the headings */
+html[data-lang="en"] .hero-circle p{margin-top:-26px;font-size:19px;font-weight:800;letter-spacing:.02em;text-transform:none;opacity:1}
+html[data-lang="en"] .side .en-sub{font-size:13px;font-weight:800;color:var(--ink);text-transform:none;letter-spacing:.01em;margin-bottom:16px}
+html[data-lang="en"] .pill p{font-size:15px;font-weight:800;text-transform:none;letter-spacing:.01em;line-height:1.4;margin:4px 0 6px}
+@media (min-width:1000px){html[data-lang="en"] .side .en-sub{font-size:15px}html[data-lang="en"] .pill p{font-size:17px}}

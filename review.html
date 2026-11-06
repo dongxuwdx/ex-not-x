@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><script>try{var l=JSON.parse(localStorage.getItem('exnotx-lang')||'"both"');l=(l==='zh'||l==='en')?l:'both';document.documentElement.dataset.lang=l;if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.dataset.lang='both'}</script><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>try{if(localStorage.getItem('exnotx-auth')!=='1')location.replace('login.html?next='+encodeURIComponent('review.html'+location.search))}catch{}</script>
 <title>Ex not X · 留学生情感社区｜AI 总结</title>
 <meta name="description" content="AI 感情总结：基于你的回答与你写下的话。">
@@ -14,7 +14,7 @@
 .duo .them{right:0;background:var(--blue)}
 .duo small{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase}
 .duo strong{font-size:16px;font-weight:800;margin:8px 0 6px;letter-spacing:.04em}
-.duo .c span{font-size:8px;letter-spacing:.16em;text-transform:uppercase}
+.duo .c>span{font-size:8px;letter-spacing:.16em;text-transform:uppercase}
 .duo .script{position:absolute;left:50%;bottom:-6px;translate:-50% 0;z-index:2;font-size:76px;color:var(--ink);mix-blend-mode:normal;white-space:nowrap}
 .headline{font-size:20px;font-weight:800;color:var(--ink);margin:26px 0 8px;line-height:1.4}
 .head-en{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -41,7 +41,7 @@
 .reflect hr{border:0;border-top:1px solid #3d3d3d;margin:0 0 16px}
 .reflect .qk{font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:#8d9cf5;font-weight:700}
 .reflect ol{margin:10px 0 0;padding-left:16px;font-size:10.5px;line-height:2;color:#e8e8e8}
-.reflect ol span{color:#bdbdbd;margin-left:6px}
+.reflect ol .en-p{color:#bdbdbd}
 .own h2,.lp-head h2{margin:0;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:800}
 .own{margin-bottom:36px}
 .own .bar-head{margin-bottom:8px}
@@ -80,9 +80,9 @@
 .keep h2{margin:6px 0 12px;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:800}
 .keep .o{display:block;width:100%;text-align:left;padding:9px 10px;border:1px solid #cfcfcf;margin-bottom:6px;background:#fff}
 .keep .o b{display:block;font-size:10.5px;color:var(--ink)}
-.keep .o span{font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+.keep .o>span{font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
 .keep .o[aria-checked="true"]{background:var(--blue);border-color:var(--blue)}
-.keep .o[aria-checked="true"] b,.keep .o[aria-checked="true"] span{color:#fff}
+.keep .o[aria-checked="true"] b,.keep .o[aria-checked="true"]>span{color:#fff}
 .keep .btn{width:100%;min-height:34px;font-size:8.5px;padding:0 6px;margin-top:6px}
 .more-acts{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink);margin-top:-1px}
 .more-acts li{border-bottom:1px solid var(--line)}
