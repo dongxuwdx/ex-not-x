@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><script>try{var l=JSON.parse(localStorage.getItem('exnotx-lang')||'"both"');l=(l==='zh'||l==='en')?l:'both';document.documentElement.dataset.lang=l;if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.dataset.lang='both'}</script><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>try{if(localStorage.getItem('exnotx-auth')!=='1')location.replace('login.html?next=stories.html')}catch{}</script>
 <title>Ex not X · 留学生情感社区｜精选故事</title>
 <meta name="description" content="精选故事：那些被听见的心事。">
@@ -40,11 +40,16 @@ a.tile:hover{filter:brightness(1.12)}
 .pick .photo .script{position:absolute;right:6px;bottom:2px;font-size:44px;mix-blend-mode:normal;color:#6a7cf0}
 .pick .cat{margin-top:10px;font-size:9px}
 .pick h3{margin:8px 0 6px;font-size:12px;font-weight:800;color:var(--ink);line-height:1.5;padding:0 8px}
-.pick h3.up{text-transform:uppercase;letter-spacing:.06em}
+.pick .up{text-transform:uppercase;letter-spacing:.06em}
 .pick p{margin:0 0 10px;font-size:11px;color:var(--text);line-height:1.6;padding:0 6px}
 .pick .text-link{font-size:9px;margin-top:auto}
 .more{text-align:center;margin:44px 0 56px}
 .section-k{text-align:center;margin:48px 0 0}
+html[data-lang="en"] .tile .sub{font-size:15px;font-weight:800;text-transform:none;letter-spacing:.01em;margin:6px 0}
+html[data-lang="en"] .t-quiz .sub{font-size:12.5px}
+html[data-lang="en"] .t-summary .en{font-size:15px;font-weight:800;color:var(--ink);text-transform:none;letter-spacing:0;margin:10px 0 8px}
+html[data-lang="both"] .pick h3 .en{display:block;margin:4px 0 0;font-size:.9em;color:var(--text)}
+html[data-lang="both"] .pick p .en{display:block;margin-top:2px;color:var(--muted)}
 @media (max-width:760px){
  .page-hero .script{font-size:84px;left:30%}
  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
@@ -62,40 +67,40 @@ a.tile:hover{filter:brightness(1.12)}
 <main class="scale-up"><div class="wrap" style="width:min(716px,100% - 48px)">
  <section class="page-hero">
   <div class="hero-stack">
-   <p class="kicker">精选故事 · Selected stories</p>
-   <h1 class="title-zh">那些被听见的心事</h1>
-   <p class="title-en">Feelings that found someone to listen</p>
+   <p class="kicker"><span class="zh">精选故事</span><span class="en">Selected stories</span></p>
+   <h1 class="title-zh zh">那些被听见的心事</h1>
+   <p class="title-en en">Feelings that found someone to listen</p>
    <span class="script" aria-hidden="true">Stories</span>
   </div>
  </section>
 
- <p class="kicker" style="text-align:center">本周精选 · This week</p>
+ <p class="kicker" style="text-align:center"><span class="zh">本周精选</span><span class="en">This week</span></p>
  <div class="mosaic">
-  <a class="tile t-lonely" href="forum.html#p1"><div class="frame"><div class="cat-w">孤独 Loneliness</div><h3>一个人的感恩节</h3></div></a>
-  <a class="tile photo t-hot" href="forum.html#p4"><span class="tag">B&amp;W photo</span><span class="cat-w">本周最热 Hot this week</span><h3>他说“等你毕业再说”</h3><span class="sub">Should I keep waiting?</span><span class="stats">201 抱抱 Hugs · 76 回复 Replies</span></a>
-  <a class="tile photo t-room" href="forum.html#p3"><span class="tag">B&amp;W photo</span><span class="brush" aria-hidden="true">室友</span><span class="cat-w">Roommates</span><h3>他总带男朋友回来过夜，我该怎么开口？</h3></a>
-  <a class="tile t-quiz" href="quiz.html"><span class="cat-w">感情测评 · 20 题 Quiz</span><h3>为你们的感情写一份总结</h3><span class="sub">A written summary of you &amp; them</span><span class="go">开始 Start →</span></a>
+  <a class="tile t-lonely" href="forum.html#p1"><div class="frame"><div class="cat-w"><span class="zh">孤独</span><span class="en">Loneliness</span></div><h3><span class="zh">一个人的感恩节</span><span class="en">Thanksgiving, alone</span></h3></div></a>
+  <a class="tile photo t-hot" href="forum.html#p4"><span class="tag">B&amp;W photo</span><span class="cat-w"><span class="zh">本周最热</span><span class="en">Hot this week</span></span><h3 class="zh">他说“等你毕业再说”</h3><span class="sub en">Should I keep waiting?</span><span class="stats">201 <span class="zh">抱抱</span><span class="en">Hugs</span> · 76 <span class="zh">回复</span><span class="en">Replies</span></span></a>
+  <a class="tile photo t-room" href="forum.html#p3"><span class="tag">B&amp;W photo</span><span class="brush zh" aria-hidden="true">室友</span><span class="cat-w en">Roommates</span><h3><span class="zh">他总带男朋友回来过夜，我该怎么开口？</span><span class="en">Her boyfriend keeps staying over. How do I bring it up?</span></h3></a>
+  <a class="tile t-quiz" href="quiz.html"><span class="cat-w"><span class="zh">感情测评 · 20 题</span><span class="en">Quiz · 20 questions</span></span><h3 class="zh">为你们的感情写一份总结</h3><span class="sub en">A written summary of you &amp; them</span><span class="go"><span class="zh">开始</span><span class="en">Start</span> →</span></a>
   <div class="row2">
-   <a class="tile t-summary" href="review.html"><span class="kicker">匿名分享的感情总结 · Shared summary</span><h3>“你们都很用力，只是用的是两种不同的语言。”</h3><span class="en">"You were both trying hard — just in two different languages."</span><span class="script" aria-hidden="true">Us</span></a>
-   <a class="tile photo t-family" href="forum.html#p2"><span class="tag">B&amp;W photo</span><span class="cat-w">家人 Family</span><h3>How do you tell your parents about someone not from home?</h3></a>
+   <a class="tile t-summary" href="review.html"><span class="kicker"><span class="zh">匿名分享的感情总结</span><span class="en">Shared summary</span></span><h3 class="zh">“你们都很用力，只是用的是两种不同的语言。”</h3><span class="en">"You were both trying hard — just in two different languages."</span><span class="script" aria-hidden="true">Us</span></a>
+   <a class="tile photo t-family" href="forum.html#p2"><span class="tag">B&amp;W photo</span><span class="cat-w"><span class="zh">家人</span><span class="en">Family</span></span><h3><span class="zh">怎么告诉父母，你爱上了一个不是“老家”的人？</span><span class="en">How do you tell your parents about someone not from home?</span></h3></a>
   </div>
  </div>
 
- <p class="kicker section-k">来自论坛 · From the forum</p>
+ <p class="kicker section-k"><span class="zh">来自论坛</span><span class="en">From the forum</span></p>
  <div class="picks" id="picks"></div>
- <div class="more"><a class="btn" href="forum.html">去论坛看更多 More in the forum</a></div>
+ <div class="more"><a class="btn" href="forum.html"><span class="zh">去论坛看更多</span><span class="en">More in the forum</span></a></div>
 </div></main>
 <footer id="site-footer"></footer>
 <script src="site.js"></script>
 <script src="data.js"></script>
 <script>
-document.getElementById('picks').innerHTML=EX_DATA.forumPicks.map(p=>`<article class="pick">
- <a class="photo" href="forum.html${p.to?'#'+p.to:''}" aria-label="${EX.esc(p.title)}"><span class="tag">B&amp;W photo</span>${p.script?`<span class="script" aria-hidden="true">${p.script}</span>`:''}</a>
- <span class="cat">${p.cat[0]} ${p.cat[1]}</span>
- <h3 class="${p.upper?'up':''}">${EX.esc(p.title)}</h3>
- <p>${EX.esc(p.dek)}</p>
- <a class="text-link" href="forum.html${p.to?'#'+p.to:''}">阅读 Read more</a>
-</article>`).join('');
+document.getElementById('picks').innerHTML=EX_DATA.forumPicks.map(p=>{const href='forum.html'+(p.to?'#'+p.to:'');return `<article class="pick">
+ <a class="photo" href="${href}" aria-label="${EX.esc(EX.pick(p.title[0],p.title[1]))}"><span class="tag">B&amp;W photo</span>${p.script?`<span class="script" aria-hidden="true">${p.script}</span>`:''}</a>
+ <span class="cat">${EX.L(p.cat[0],p.cat[1])}</span>
+ <h3><span class="zh">${EX.esc(p.title[0])}</span><span class="en up">${EX.esc(p.title[1])}</span></h3>
+ <p><span class="zh">${EX.esc(p.dek[0])}</span><span class="en">${EX.esc(p.dek[1])}</span></p>
+ <a class="text-link" href="${href}">${EX.L('阅读','Read more')}</a>
+</article>`}).join('');
 </script>
 </body>
 </html>

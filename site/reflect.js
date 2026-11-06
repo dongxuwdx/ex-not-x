@@ -49,7 +49,7 @@
    {zh:'早做规划',en:'Plans ahead',t:{future:24}},{zh:'更习惯活在当下',en:'Lives in the present',t:{future:-24}},{zh:'总把话题岔开',en:'Changes the subject',t:{future:-14,conflict:-8}},{zh:'我不知道',en:"I don't know",t:{}}]},
   {id:'want',zh:'现在，你最想要的是？',en:'Right now, what do you want most?',opts:[
    {zh:'一次真正坦白的谈话',en:'One honest conversation',tag:'talk'},{zh:'一个明确的答案',en:'A clear answer',tag:'answer'},{zh:'更多的陪伴',en:'More time together',tag:'time'},{zh:'学会放下',en:'To let go',tag:'letgo'}]},
-  {id:'extra',type:'text',optional:true,zh:'还有什么想写下的吗？（可以跳过）',en:'Anything else you want to write down? (optional)',ph:'写给自己，也可以写给 TA… To yourself, or to them…'},
+  {id:'extra',type:'text',optional:true,zh:'还有什么想写下的吗？（可以跳过）',en:'Anything else you want to write down? (optional)',ph:'写给自己，也可以写给 TA… · To yourself, or to them…'},
  ];
 
  const STATUS={together:['在一起','Together'],over:['已经结束','It\'s over'],undefined:['暧昧中','Undefined'],onesided:['单方面喜欢','One-sided']};

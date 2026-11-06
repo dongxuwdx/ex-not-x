@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><script>try{var l=JSON.parse(localStorage.getItem('exnotx-lang')||'"both"');l=(l==='zh'||l==='en')?l:'both';document.documentElement.dataset.lang=l;if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.dataset.lang='both'}</script><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ex not X · 留学生情感社区｜登录</title>
 <meta name="description" content="Ex not X：输入口令进入。">
 <link rel="stylesheet" href="site.css">
 <style>
 body{min-height:100vh;display:flex;flex-direction:column}
-.bar{border-bottom:1px solid var(--line);padding:18px 0 14px;text-align:center}
+.bar{position:relative;border-bottom:1px solid var(--line);padding:18px 0 14px;text-align:center}
+.login-lang{position:absolute;right:clamp(16px,4vw,56px);top:50%;translate:0 -50%;font-size:11px;letter-spacing:.12em}
 main{flex:1;display:grid;grid-template-columns:auto 1fr;gap:70px;align-items:center;width:min(860px,100% - 48px);margin:0 auto;padding:60px 0}
 .circle{position:relative;width:300px;height:300px;border-radius:50%;overflow:visible}
 .circle .tag{position:absolute;top:50%;left:0;right:0;text-align:center;translate:0 -50%;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
@@ -24,22 +25,22 @@ form{max-width:380px}
 </style>
 </head>
 <body>
-<div class="bar"><span class="logo"><span class="mark">EX NOT X</span><span class="sub" style="margin:4px 0 0;letter-spacing:.5em;font-size:10px">留学生情感社区</span></span></div>
+<div class="bar"><span class="logo"><span class="mark">EX NOT X</span><span class="sub" style="margin:4px 0 0;letter-spacing:.5em;font-size:10px"><span class="zh">留学生情感社区</span><span class="only-en">Love abroad, out loud</span></span></span><span class="lang-switch login-lang" role="group" aria-label="Language"><button type="button" data-set-lang="zh">中</button><span aria-hidden="true">/</span><button type="button" data-set-lang="en">EN</button></span></div>
 <main>
  <div class="circle photo"><span class="tag">B&amp;W photo</span><span class="script" aria-hidden="true">Hello</span></div>
  <section id="card" aria-labelledby="login-heading">
-  <p class="kicker">在进入之前 · Before you come in</p>
-  <h1 id="login-heading">说出暗号</h1>
-  <p class="sub">Say the passcode</p>
+  <p class="kicker"><span class="zh">在进入之前</span><span class="en">Before you come in</span></p>
+  <h1 id="login-heading"><span class="zh">说出暗号</span><span class="en">Say the passcode</span></h1>
+  <p class="sub both-only">Say the passcode</p>
   <form id="login-form" novalidate>
-   <label class="field-label" for="password">口令 · Passcode</label>
+   <label class="field-label" for="password"><span class="zh">口令</span><span class="en">Passcode</span></label>
    <input class="line-input" id="password" type="password" autocomplete="current-password" aria-describedby="login-error" autofocus>
-   <button class="btn solid" type="submit">进入 Enter</button>
+   <button class="btn solid" type="submit"><span class="zh">进入</span><span class="en">Enter</span></button>
    <p id="login-error" class="error" role="alert"></p>
   </form>
  </section>
 </main>
-<footer class="site-footer slim on-dark"><div class="wrap"><p class="legal">© 2026 Ex not X · 无论你在哪个时区 · Wherever you are</p><div class="goodnight"><span class="script light">Good night</span><span class="brush">晚安</span></div></div></footer>
+<footer class="site-footer slim on-dark"><div class="wrap"><p class="legal">© 2026 Ex not X · <span class="zh">无论你在哪个时区</span><span class="en">Wherever you are</span></p><div class="goodnight"><span class="script light">Good night</span><span class="brush zh">晚安</span></div></div></footer>
 <script>
 (()=>{
 // Prototype gate: a fixed passcode kept in the page. Not real security.
@@ -50,8 +51,9 @@ const form=document.querySelector('#login-form'),input=document.querySelector('#
 form.addEventListener('submit',e=>{
  e.preventDefault();
  if(input.value.trim()===PASSWORD){try{localStorage.setItem(KEY,'1')}catch{}error.textContent='';location.replace(target)}
- else{error.textContent=input.value.trim()?'暗号不对，再想想 · Not quite':'先输入口令 · Enter the passcode';card.classList.remove('shake');void card.offsetWidth;card.classList.add('shake');input.select()}
+ else{const l=document.documentElement.dataset.lang,T=(zh,en)=>l==='zh'?zh:l==='en'?en:zh+' · '+en;error.textContent=input.value.trim()?T('暗号不对，再想想','Not quite — try again'):T('先输入口令','Enter the passcode');card.classList.remove('shake');void card.offsetWidth;card.classList.add('shake');input.select()}
 });
+document.querySelectorAll('[data-set-lang]').forEach(b=>{const cur=document.documentElement.dataset.lang;b.setAttribute('aria-pressed',cur===b.dataset.setLang);b.addEventListener('click',()=>{try{localStorage.setItem('exnotx-lang',JSON.stringify(cur===b.dataset.setLang?'both':b.dataset.setLang))}catch{}location.reload()})});
 })();
 </script>
 </body>

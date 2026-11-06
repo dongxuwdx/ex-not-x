@@ -61,11 +61,11 @@ window.EX_DATA={
    altBody:'寒暄、“我们算什么”的那场谈话、AA 制——每条规则都不一样。还有人觉得自己像开着字幕在谈恋爱吗？'},
  ],
  forumPicks:[
-  {cat:['家人','Family'],title:'How do you tell your parents about someone not from home?',upper:true,dek:'我妈一直给我发“老家的好男孩”资料，我不知道该怎么开口。',to:'p2'},
-  {cat:['约会','Dating'],title:'和留学生约会，像开着字幕谈恋爱',dek:'Small talk, the “what are we” talk, splitting the bill — every rule is different.',script:'Home',to:'p5'},
-  {cat:['孤独','Loneliness'],title:'凌晨三点，国内正是下午',dek:'At 3am I scroll through my family group chat. It\'s afternoon there, and everyone\'s fine.'},
-  {cat:['异地恋','Long-distance'],title:'我们约好每个月看同一部电影',dek:'差 8 小时，就同时按下播放键。弹幕是我们自己打的字。'},
-  {cat:['分手','Breakups'],title:'We broke up over FaceTime. I still don\'t know how to feel.',upper:true,dek:'没有拥抱，也没有摔门，只是屏幕突然黑了。',script:'Bye'},
-  {cat:['室友','Roommates'],title:'原来室友也会成为家人',dek:'她在我发烧的晚上煮了一锅白粥，我第一次在这边哭了。'},
+  {cat:['家人','Family'],title:['怎么告诉父母，你爱上了一个不是“老家”的人？','How do you tell your parents about someone not from home?'],dek:['我妈一直给我发“老家的好男孩”资料，我不知道该怎么开口。','My mom keeps sending me profiles of “nice boys back home”.'],to:'p2'},
+  {cat:['约会','Dating'],title:['和留学生约会，像开着字幕谈恋爱','Dating abroad feels like dating with subtitles on'],dek:['寒暄、“我们算什么”、AA 制——每条规则都不一样。','Small talk, the “what are we” talk, splitting the bill — every rule is different.'],script:'Home',to:'p5'},
+  {cat:['孤独','Loneliness'],title:['凌晨三点，国内正是下午','At 3am, it\'s afternoon back home'],dek:['凌晨三点刷家族群，那边是下午，大家都很好。','At 3am I scroll through my family group chat. It\'s afternoon there, and everyone\'s fine.']},
+  {cat:['异地恋','Long-distance'],title:['我们约好每个月看同一部电影','We watch the same film once a month'],dek:['差 8 小时，就同时按下播放键。弹幕是我们自己打的字。','Eight hours apart, we press play at the same time. The comments are our own.']},
+  {cat:['分手','Breakups'],title:['在 FaceTime 上分手，我到现在都不知道该是什么感觉','We broke up over FaceTime. I still don\'t know how to feel.'],dek:['没有拥抱，也没有摔门，只是屏幕突然黑了。','No hug, no slammed door — the screen just went dark.'],script:'Bye'},
+  {cat:['室友','Roommates'],title:['原来室友也会成为家人','When a roommate becomes family'],dek:['她在我发烧的晚上煮了一锅白粥，我第一次在这边哭了。','She made me rice porridge the night I had a fever. It was the first time I cried here.']},
  ]
 };

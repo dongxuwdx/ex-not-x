@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><script>try{var l=JSON.parse(localStorage.getItem('exnotx-lang')||'"both"');l=(l==='zh'||l==='en')?l:'both';document.documentElement.dataset.lang=l;if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.dataset.lang='both'}</script><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>try{if(localStorage.getItem('exnotx-auth')!=='1')location.replace('login.html?next='+encodeURIComponent('forum.html'+location.hash))}catch{}</script>
 <title>Ex not X · 留学生情感社区｜自由论坛</title>
 <meta name="description" content="自由论坛：说出在家说不出口的话。">
@@ -73,36 +73,36 @@
 <main class="wrap" style="width:min(1150px,100% - 48px)">
  <section class="page-hero">
   <div class="hero-stack">
-   <p class="kicker">自由论坛 · Forum</p>
-   <p class="title-en" style="margin-top:12px">Say what you can't say at home</p>
+   <p class="kicker"><span class="zh">自由论坛</span><span class="en">Forum</span></p>
+   <p class="title-en" style="margin-top:12px"><span class="zh">说出在家说不出口的话</span><span class="en">Say what you can't say at home</span></p>
    <span class="script" aria-hidden="true">Say it</span>
   </div>
   <label class="search">
    <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10.5 15 15" stroke="currentColor" stroke-width="1.6"/></svg>
-   <span class="sr-only">搜索帖子</span><input id="q" type="search" placeholder="搜索帖子 Search posts" autocomplete="off">
+   <span class="sr-only"><span class="zh">搜索帖子</span><span class="en">Search posts</span></span><input id="q" type="search" data-i18n-placeholder="搜索帖子|Search posts" autocomplete="off">
   </label>
  </section>
- <nav class="cats" id="cats" aria-label="分类"></nav>
+ <nav class="cats" id="cats" data-i18n-aria-label="分类|Categories"></nav>
  <div class="layout">
-  <section aria-label="帖子">
-   <div class="list-head"><span><span data-n>5</span> 篇帖子 Posts</span>
-    <div class="sorts" role="group" aria-label="排序"><button type="button" data-sort="latest" aria-pressed="true">最新 Latest</button>·<button type="button" data-sort="top" aria-pressed="false">最热 Top</button>·<button type="button" data-sort="support" aria-pressed="false">求安慰 Needs support</button></div>
+  <section data-i18n-aria-label="帖子|Posts">
+   <div class="list-head"><span><span data-n>5</span> <span class="zh">篇帖子</span><span class="en">posts</span></span>
+    <div class="sorts" role="group" data-i18n-aria-label="排序|Sort"><button type="button" data-sort="latest" aria-pressed="true"><span class="zh">最新</span><span class="en">Latest</span></button>·<button type="button" data-sort="top" aria-pressed="false"><span class="zh">最热</span><span class="en">Top</span></button>·<button type="button" data-sort="support" aria-pressed="false"><span class="zh">求安慰</span><span class="en">Needs support</span></button></div>
    </div>
    <ul class="posts" id="posts"></ul>
   </section>
   <aside>
    <form class="write" id="write" novalidate>
-    <div class="head"><h2>写点什么 Write a post</h2><span class="brush" aria-hidden="true">心事</span></div>
-    <div class="fld"><label class="field-label" for="w-title">标题 Title</label><input type="text" id="w-title" maxlength="80" placeholder="一句话说说你的心事"></div>
-    <div class="fld"><label class="field-label" for="w-body">正文 Body</label><textarea id="w-body" maxlength="2000" placeholder="中文或 English 都可以，其他人可一键翻译。&#10;Write in either language — readers can translate."></textarea></div>
-    <div class="fld"><label class="field-label" for="w-cat">分类 Category</label><select id="w-cat"></select></div>
-    <fieldset class="fld" style="border:0;padding:0;margin:0 0 6px"><legend class="field-label">谁能看到 Who can see this</legend>
-     <label class="radio"><input type="radio" name="vis" value="all" checked> 所有人 Everyone</label>
-     <label class="radio"><input type="radio" name="vis" value="school"> 仅同校同学 My school only</label>
+    <div class="head"><h2><span class="zh">写点什么</span><span class="en">Write a post</span></h2><span class="brush zh" aria-hidden="true">心事</span><span class="script en" aria-hidden="true" style="font-size:34px">Say it</span></div>
+    <div class="fld"><label class="field-label" for="w-title"><span class="zh">标题</span><span class="en">Title</span></label><input type="text" id="w-title" maxlength="80" data-i18n-placeholder="一句话说说你的心事|Your story in one line"></div>
+    <div class="fld"><label class="field-label" for="w-body"><span class="zh">正文</span><span class="en">Body</span></label><textarea id="w-body" maxlength="2000" data-i18n-placeholder="中文或 English 都可以，其他人可一键翻译。|Write in either language — readers can translate."></textarea></div>
+    <div class="fld"><label class="field-label" for="w-cat"><span class="zh">分类</span><span class="en">Category</span></label><select id="w-cat"></select></div>
+    <fieldset class="fld" style="border:0;padding:0;margin:0 0 6px"><legend class="field-label"><span class="zh">谁能看到</span><span class="en">Who can see this</span></legend>
+     <label class="radio"><input type="radio" name="vis" value="all" checked> <span class="zh">所有人</span><span class="en">Everyone</span></label>
+     <label class="radio"><input type="radio" name="vis" value="school"> <span class="zh">仅同校同学</span><span class="en">My school only</span></label>
     </fieldset>
-    <div class="anon-row"><div><strong>匿名发布 Post anonymously</strong><small>显示为随机昵称 Shown as a random alias</small></div><button type="button" class="switch" role="switch" aria-checked="true" id="w-anon">开 ON</button></div>
-    <label class="check"><input type="checkbox" id="w-comfort"> 我只想被安慰，不需要建议 Comfort, not advice</label>
-    <button class="btn solid" type="submit">发布 Publish</button>
+    <div class="anon-row"><div><strong><span class="zh">匿名发布</span><span class="en">Post anonymously</span></strong><small><span class="zh">显示为随机昵称</span><span class="en">Shown as a random alias</span></small></div><button type="button" class="switch" role="switch" aria-checked="true" id="w-anon"></button></div>
+    <label class="check"><input type="checkbox" id="w-comfort"> <span class="zh">我只想被安慰，不需要建议</span><span class="en">Comfort, not advice</span></label>
+    <button class="btn solid" type="submit"><span class="zh">发布</span><span class="en">Publish</span></button>
     <p class="err" id="w-err" role="alert"></p>
    </form>
   </aside>

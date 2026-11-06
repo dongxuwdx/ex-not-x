@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><script>try{var l=JSON.parse(localStorage.getItem('exnotx-lang')||'"both"');l=(l==='zh'||l==='en')?l:'both';document.documentElement.dataset.lang=l;if(l==='en')document.documentElement.lang='en'}catch(e){document.documentElement.dataset.lang='both'}</script><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>try{if(localStorage.getItem('exnotx-auth')!=='1')location.replace('login.html?next='+encodeURIComponent('guidelines.html'+location.hash))}catch{}</script>
 <title>Ex not X · 留学生情感社区｜社区准则</title>
 <link rel="stylesheet" href="site.css">
@@ -12,7 +12,8 @@
 .rules li::before{content:counter(r,decimal-leading-zero);font-family:var(--script);font-size:40px;color:var(--blue);line-height:1}
 .rules h2{margin:0 0 6px;font-size:17px;color:var(--ink)}
 .rules p{margin:0;font-size:14.5px;line-height:1.8}
-.rules .en{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+html[data-lang="both"] .rules p .en,html[data-lang="both"] .block p .en{display:block;margin:4px 0 0!important;color:var(--muted);font-size:13px}
+html[data-lang="both"] .help p .en{display:block;margin:4px 0 0!important;opacity:.85}
 .block{padding:40px 0 0;scroll-margin-top:20px}
 .block h2{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:0 0 10px}
 .block p{margin:0 0 8px;font-size:14.5px;line-height:1.8}
@@ -25,26 +26,26 @@
 <main class="narrow" style="padding-bottom:70px">
  <section class="page-hero">
   <div class="hero-stack">
-   <p class="kicker">社区准则 · Guidelines</p>
-   <h1 class="title-zh">在这里，温柔是默认值</h1>
-   <p class="title-en">Kindness is the default here</p>
+   <p class="kicker"><span class="zh">社区准则</span><span class="en">Guidelines</span></p>
+   <h1 class="title-zh zh">在这里，温柔是默认值</h1>
+   <p class="title-en en">Kindness is the default here</p>
    <span class="script" aria-hidden="true">Be kind</span>
   </div>
  </section>
  <ol class="rules">
-  <li><div><h2>先听，再说</h2><p>每一条心事背后都是一个真实的人。回复之前，先读完。<span class="en">Every post is a real person. Read it all before you reply.</span></p></div></li>
-  <li><div><h2>尊重“只想被安慰”</h2><p>看到「求安慰 Needs support」标签时，请不要急着给建议。<span class="en">When a post asks for comfort, not advice — honour that.</span></p></div></li>
-  <li><div><h2>不评判任何一种选择</h2><p>坚持、离开、暧昧、单恋，都没有标准答案。<span class="en">Staying, leaving, undefined, one-sided — none of them is the wrong answer.</span></p></div></li>
-  <li><div><h2>保护 TA 的隐私</h2><p>不要发布真实姓名、照片、学校或任何能认出别人的信息。<span class="en">No real names, photos, schools or anything that could identify someone else.</span></p></div></li>
-  <li><div><h2>语言不是门槛</h2><p>中文或 English 都可以，翻译按钮会帮你。不要因为语言嘲笑任何人。<span class="en">Write in either language. Never mock anyone for theirs.</span></p></div></li>
+  <li><div><h2><span class="zh">先听，再说</span><span class="en">Listen first</span></h2><p><span class="zh">每一条心事背后都是一个真实的人。回复之前，先读完。</span><span class="en">Every post is a real person. Read it all before you reply.</span></p></div></li>
+  <li><div><h2><span class="zh">尊重“只想被安慰”</span><span class="en">Respect “comfort, not advice”</span></h2><p><span class="zh">看到「求安慰」标签时，请不要急着给建议。</span><span class="en">When a post is marked Needs support, don't rush to give advice.</span></p></div></li>
+  <li><div><h2><span class="zh">不评判任何一种选择</span><span class="en">No judging anyone's choice</span></h2><p><span class="zh">坚持、离开、暧昧、单恋，都没有标准答案。</span><span class="en">Staying, leaving, undefined, one-sided — none of them is the wrong answer.</span></p></div></li>
+  <li><div><h2><span class="zh">保护 TA 的隐私</span><span class="en">Protect their privacy</span></h2><p><span class="zh">不要发布真实姓名、照片、学校或任何能认出别人的信息。</span><span class="en">No real names, photos, schools or anything that could identify someone else.</span></p></div></li>
+  <li><div><h2><span class="zh">语言不是门槛</span><span class="en">Language is not a barrier</span></h2><p><span class="zh">中文或 English 都可以，翻译按钮会帮你。不要因为语言嘲笑任何人。</span><span class="en">Write in either language — the Translate button helps. Never mock anyone for theirs.</span></p></div></li>
  </ol>
- <section class="block" id="story"><h2>我们的故事 · Our story</h2><p>Ex not X 是一个给留学生的情感社区：隔着时差的心事，在这里总能找到一个醒着的人。<span class="en">A community for students abroad — whatever your time zone, someone here is awake.</span></p></section>
- <section class="block" id="privacy"><h2>隐私 · Privacy</h2><p>这是一个本地原型：投票、帖子、测评与日记只保存在这台设备的浏览器里，不会上传到任何地方。<span class="en">This is a local prototype: votes, posts, quizzes and your journal stay in this browser only.</span></p></section>
- <section class="block" id="report"><h2>举报 · Report</h2><p>看到让你不舒服的内容，请联系我们。正式版会在每条帖子旁提供举报入口。<span class="en">See something harmful? Contact us. The live site will have a report button on every post.</span></p></section>
- <section class="block" id="contact"><h2>联系我们 · Contact</h2><p>正式版将提供联系邮箱。<span class="en">A contact address will be added for launch.</span></p></section>
- <section class="block" id="help"><h2>心理支持资源 · Get help</h2>
-  <div class="help"><p><b>如果你正处于危险之中，请立刻拨打当地紧急电话。</b><br>If you are in danger, call your local emergency number now.</p>
-  <p>你也可以联系所在学校的心理咨询中心（Student Counselling / Wellbeing Service），大多数学校提供免费、保密的服务。<span class="en">Your university's counselling or wellbeing service is usually free and confidential.</span></p></div>
+ <section class="block" id="story"><h2><span class="zh">我们的故事</span><span class="en">Our story</span></h2><p><span class="zh">Ex not X 是一个给留学生的情感社区：隔着时差的心事，在这里总能找到一个醒着的人。</span><span class="en">A community for students abroad — whatever your time zone, someone here is awake.</span></p></section>
+ <section class="block" id="privacy"><h2><span class="zh">隐私</span><span class="en">Privacy</span></h2><p><span class="zh">这是一个本地原型：投票、帖子、测评与日记只保存在这台设备的浏览器里，不会上传到任何地方。</span><span class="en">This is a local prototype: votes, posts, quizzes and your journal stay in this browser only.</span></p></section>
+ <section class="block" id="report"><h2><span class="zh">举报</span><span class="en">Report</span></h2><p><span class="zh">看到让你不舒服的内容，请联系我们。正式版会在每条帖子旁提供举报入口。</span><span class="en">See something harmful? Contact us. The live site will have a report button on every post.</span></p></section>
+ <section class="block" id="contact"><h2><span class="zh">联系我们</span><span class="en">Contact</span></h2><p><span class="zh">正式版将提供联系邮箱。</span><span class="en">A contact address will be added for launch.</span></p></section>
+ <section class="block" id="help"><h2><span class="zh">心理支持资源</span><span class="en">Get help</span></h2>
+  <div class="help"><p><b><span class="zh">如果你正处于危险之中，请立刻拨打当地紧急电话。</span><span class="en">If you are in danger, call your local emergency number now.</span></b></p>
+  <p><span class="zh">你也可以联系所在学校的心理咨询中心（Student Counselling / Wellbeing Service），大多数学校提供免费、保密的服务。</span><span class="en">Your university's counselling or wellbeing service is usually free and confidential.</span></p></div>
  </section>
 </main>
 <footer id="site-footer"></footer>

@@ -47,3 +47,18 @@ test('summaries never leave TA unnamed or crash on an empty quiz',()=>{
  assert.equal(s.name,'TA');
  assert.ok(s.story.every(([, ,p])=>p[0]&&p[1]&&!p[0].includes('undefined')&&!p[1].includes('undefined')));
 });
+
+test('every 2.0 page sets the language before paint and has no unconverted [[zh|en]] markers',()=>{
+ for(const file of [...Object.keys(PAGES),'login.html']){
+  const html=read('../site/'+file),head=html.slice(0,html.indexOf('</head>'));
+  assert.match(head,/exnotx-lang/,file);
+  assert.ok(!html.includes('[['),file);
+ }
+});
+
+test('the header offers 中 and EN as a global switch',()=>{
+ const js=read('../site/site.js');
+ assert.match(js,/data-set-lang="zh"[^>]*>中</);
+ assert.match(js,/data-set-lang="en"[^>]*>EN</);
+ assert.match(js,/html\[data-lang|dataset\.lang=lang/);
+});
