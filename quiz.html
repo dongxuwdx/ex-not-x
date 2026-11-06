@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{if(localStorage.getItem('exnotx-auth')!=='1')location.replace('login.html?next=quiz.html')}catch{}</script>
+<title>Ex not X · 留学生情感社区｜感情测评</title>
+<meta name="description" content="感情测评：写给一段感情的总结。">
+<link rel="stylesheet" href="site.css">
+<style>
+.quiz{display:grid;grid-template-columns:300px minmax(0,1fr);gap:64px;padding:52px 0 80px;align-items:start}
+.intro{text-align:center;position:sticky;top:24px}
+.intro .circle{position:relative;width:300px;height:300px;border-radius:50%;margin:0 auto;overflow:visible}
+.intro .circle .tag{position:absolute;top:50%;left:0;right:0;text-align:center;translate:0 -50%;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.intro .circle .script{position:absolute;left:-8px;right:-30px;bottom:6px;font-size:96px;mix-blend-mode:normal;transform:rotate(-6deg);white-space:nowrap;text-align:center;overflow:visible}
+.intro .kicker{margin-top:30px}
+.intro h1{font-size:23px;margin:12px 0 8px;font-weight:800;color:var(--ink)}
+.intro .en-t{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);line-height:1.8}
+.sections{list-style:none;margin:28px 0 0;padding:0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);text-align:left}
+.sections li{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid var(--line);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;position:relative}
+.sections li:first-child{border-top:0}
+.sections li.on{color:var(--blue)}
+.sections li.done{color:var(--ink)}
+.sections li.done::after{content:'✓';position:absolute;right:-18px;color:var(--blue);font-size:12px}
+.sections li i{position:absolute;left:0;bottom:-1px;height:2px;background:var(--blue);transition:width .4s}
+.privacy{font-size:13px;line-height:1.7;color:var(--text);margin-top:24px}
+.stage .kicker{margin-bottom:22px}
+.stage h2{font-size:32px;line-height:1.3;margin:0 0 14px;color:var(--ink);font-weight:800}
+.stage .en-q{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--text);margin:0 0 34px}
+.fld{margin-bottom:26px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.opt{display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:82px;padding:18px 18px;border:1px solid #cfcfcf;text-align:left;background:#fff;transition:border-color .15s,background .15s,color .15s}
+.opt b{font-size:16px;font-weight:700;color:var(--ink)}
+.opt span{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text)}
+.opt:hover{border-color:var(--blue)}
+.opt[aria-pressed="true"],.opt[aria-checked="true"]{background:var(--blue);border-color:var(--blue)}
+.opt[aria-pressed="true"] b,.opt[aria-pressed="true"] span,.opt[aria-checked="true"] b,.opt[aria-checked="true"] span{color:#fff}
+.hint{font-size:12px;color:var(--muted);margin:4px 0 0}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:16px}
+.nav-row .btn.solid{min-width:226px;min-height:58px}
+.back{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.back:hover{color:var(--ink)}
+.progress{height:3px;background:var(--line);margin-bottom:26px}
+.progress i{display:block;height:100%;background:var(--blue);transition:width .35s}
+.qnum{font-variant-numeric:tabular-nums}
+.err{color:#b4232c;font-size:13px;min-height:1.2em;margin:8px 0 0}
+.writing{text-align:center;padding:80px 0}
+.writing .script{font-size:72px;display:block;margin-bottom:10px;animation:breathe 1.6s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.4}}
+.resume{border:1px solid var(--blue);padding:14px 16px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:14px;flex-wrap:wrap}
+@media (max-width:900px){.quiz{grid-template-columns:1fr;gap:40px}.intro{position:static}.intro .circle{width:240px;height:240px}.intro .circle .script{font-size:78px}.sections li.done::after{right:0}}
+@media (max-width:520px){.opts{grid-template-columns:1fr}.stage h2{font-size:25px}.nav-row .btn.solid{min-width:0;flex:1}}
+</style>
+</head>
+<body data-page="quiz">
+<header id="site-header"></header>
+<main class="wrap" style="width:min(1060px,100% - 48px)">
+ <div class="quiz">
+  <aside class="intro">
+   <div class="circle photo"><span class="tag">B&amp;W photo</span><span class="script" id="you-and" aria-hidden="true">You &amp; J</span></div>
+   <p class="kicker">感情测评 · Relationship reflection</p>
+   <h1>写给一段感情的总结</h1>
+   <p class="en-t">A written summary of one relationship</p>
+   <ol class="sections" id="sections"></ol>
+   <p class="privacy">答案只用于生成你的总结，默认仅自己可见。TA 的名字永远不会被公开。<br><span class="en">Answers only shape your summary, private by default. Their name is never shown publicly.</span></p>
+  </aside>
+  <section class="stage" id="stage" aria-live="polite"></section>
+ </div>
+</main>
+<footer id="site-footer" data-note="本测评用于自我觉察，不是心理诊断 · For reflection, not diagnosis"></footer>
+<script src="site.js"></script>
+<script src="reflect.js"></script>
+<script src="quiz.js"></script>
+</body>
+</html>
