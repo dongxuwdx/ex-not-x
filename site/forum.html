@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>try{if(localStorage.getItem('exnotx-auth')!=='1')location.replace('login.html?next='+encodeURIComponent('forum.html'+location.hash))}catch{}</script>
+<title>Ex not X · 留学生情感社区｜自由论坛</title>
+<meta name="description" content="自由论坛：说出在家说不出口的话。">
+<link rel="stylesheet" href="site.css">
+<style>
+.page-hero{padding:46px 0 30px}
+.page-hero .script{font-size:150px;left:44%;top:-34px;transform:rotate(-5deg)}
+.search{display:flex;align-items:center;gap:10px;width:min(470px,100%);margin:34px auto 0;border-bottom:1px solid var(--ink);padding:6px 0}
+.search svg{flex:none}
+.search input{flex:1;border:0;outline:none;font-size:15px;padding:4px 0;background:transparent}
+.cats{display:flex;justify-content:center;gap:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:26px auto 0;width:min(1000px,100%);flex-wrap:wrap}
+.cats button{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink);padding:16px 0 14px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.cats button[aria-pressed="true"]{color:var(--blue);border-bottom-color:var(--blue)}
+.cats button:hover{color:var(--blue)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start;padding:30px 0 70px}
+.list-head{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--ink);padding-bottom:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.sorts{display:flex;gap:6px;align-items:center;color:var(--muted)}
+.sorts button{letter-spacing:.14em;text-transform:uppercase;color:var(--text)}
+.sorts button[aria-pressed="true"]{color:var(--blue);font-weight:700}
+.posts{list-style:none;margin:0;padding:0}
+.post{display:grid;grid-template-columns:auto 1fr;gap:0 22px;padding:28px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px;transition:background .6s}
+.post.flash{background:var(--blue-soft)}
+.post .thumb{width:146px;height:146px;grid-row:1/3}
+.post .tags{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.post h2{margin:12px 0 8px;font-size:20px;line-height:1.4;font-weight:800;color:var(--ink);letter-spacing:.01em}
+.post .body{margin:0;font-size:15px;line-height:1.75;color:var(--text)}
+.post .byline{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.post .byline b{color:var(--ink)}
+.post .foot{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.post.has-photo .foot{flex-direction:column;align-items:flex-start;gap:20px}
+.post .acts{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.post .acts .hug-btn,.post .acts .rep{font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.post .acts .rep:hover{color:var(--blue)}
+.post .main{grid-column:2}
+.post:not(.has-photo) .main{grid-column:1/-1}
+.thread{grid-column:1/-1;margin-top:16px;padding:14px 16px;background:#fafafa;border-left:2px solid var(--blue)}
+.thread ul{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:10px;font-size:14px}
+.thread b{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-right:8px}
+.thread form{display:flex;gap:8px}
+.thread input{flex:1;border:0;border-bottom:1px solid var(--ink);background:transparent;padding:6px 0;font-size:14px;outline:none}
+.thread .btn{min-height:32px;padding:0 14px;font-size:10px}
+.thread .comfort-note{font-size:12px;color:var(--blue);margin:0 0 10px}
+.none{padding:40px 0;color:var(--muted);text-align:center}
+.write{border:1.5px solid var(--ink);padding:30px 28px;position:sticky;top:20px}
+.write .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.write h2{margin:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--ink)}
+.write .brush{color:var(--blue);font-size:30px;line-height:1}
+.write .fld{margin-bottom:20px}
+.write input[type=text],.write textarea{width:100%;border:0;border-bottom:1px solid #bdbdbd;padding:8px 0;font-size:15px;outline:none;background:transparent}
+.write textarea{min-height:150px;resize:vertical;line-height:1.6}
+.write input[type=text]:focus,.write textarea:focus,.write select:focus{border-bottom-color:var(--blue)}
+.write select{width:100%;border:0;border-bottom:1px solid #bdbdbd;padding:8px 4px;font-size:15px;background:#fff;outline:none}
+.radio{display:flex;align-items:center;gap:10px;font-size:15px;padding:8px 0}
+.radio input,.check input{accent-color:var(--blue);width:16px;height:16px}
+.anon-row{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid var(--blue);padding:12px 14px;margin:6px 0 14px}
+.anon-row strong{display:block;font-size:15px;font-weight:600;color:var(--ink)}
+.anon-row small{font-size:12px;color:var(--muted)}
+.switch{min-width:56px;height:28px;background:var(--blue);color:#fff;font-size:11px;letter-spacing:.14em;font-weight:700}
+.switch[aria-checked="false"]{background:#fff;color:var(--muted);border:1px solid #bdbdbd}
+.check{display:flex;align-items:center;gap:10px;font-size:14px;padding:8px 0 18px}
+.write .btn{width:100%;min-height:52px}
+.err{color:#b4232c;font-size:12px;min-height:1em;margin:6px 0 0}
+@media (max-width:900px){.layout{grid-template-columns:1fr}.write{position:static}.page-hero .script{font-size:104px;left:34%}}
+@media (max-width:560px){.post .thumb{width:84px;height:84px}.post h2{font-size:17px}.cats{gap:16px}}
+</style>
+</head>
+<body data-page="forum">
+<header id="site-header"></header>
+<main class="wrap" style="width:min(1150px,100% - 48px)">
+ <section class="page-hero">
+  <div class="hero-stack">
+   <p class="kicker">自由论坛 · Forum</p>
+   <p class="title-en" style="margin-top:12px">Say what you can't say at home</p>
+   <span class="script" aria-hidden="true">Say it</span>
+  </div>
+  <label class="search">
+   <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10.5 15 15" stroke="currentColor" stroke-width="1.6"/></svg>
+   <span class="sr-only">搜索帖子</span><input id="q" type="search" placeholder="搜索帖子 Search posts" autocomplete="off">
+  </label>
+ </section>
+ <nav class="cats" id="cats" aria-label="分类"></nav>
+ <div class="layout">
+  <section aria-label="帖子">
+   <div class="list-head"><span><span data-n>5</span> 篇帖子 Posts</span>
+    <div class="sorts" role="group" aria-label="排序"><button type="button" data-sort="latest" aria-pressed="true">最新 Latest</button>·<button type="button" data-sort="top" aria-pressed="false">最热 Top</button>·<button type="button" data-sort="support" aria-pressed="false">求安慰 Needs support</button></div>
+   </div>
+   <ul class="posts" id="posts"></ul>
+  </section>
+  <aside>
+   <form class="write" id="write" novalidate>
+    <div class="head"><h2>写点什么 Write a post</h2><span class="brush" aria-hidden="true">心事</span></div>
+    <div class="fld"><label class="field-label" for="w-title">标题 Title</label><input type="text" id="w-title" maxlength="80" placeholder="一句话说说你的心事"></div>
+    <div class="fld"><label class="field-label" for="w-body">正文 Body</label><textarea id="w-body" maxlength="2000" placeholder="中文或 English 都可以，其他人可一键翻译。&#10;Write in either language — readers can translate."></textarea></div>
+    <div class="fld"><label class="field-label" for="w-cat">分类 Category</label><select id="w-cat"></select></div>
+    <fieldset class="fld" style="border:0;padding:0;margin:0 0 6px"><legend class="field-label">谁能看到 Who can see this</legend>
+     <label class="radio"><input type="radio" name="vis" value="all" checked> 所有人 Everyone</label>
+     <label class="radio"><input type="radio" name="vis" value="school"> 仅同校同学 My school only</label>
+    </fieldset>
+    <div class="anon-row"><div><strong>匿名发布 Post anonymously</strong><small>显示为随机昵称 Shown as a random alias</small></div><button type="button" class="switch" role="switch" aria-checked="true" id="w-anon">开 ON</button></div>
+    <label class="check"><input type="checkbox" id="w-comfort"> 我只想被安慰，不需要建议 Comfort, not advice</label>
+    <button class="btn solid" type="submit">发布 Publish</button>
+    <p class="err" id="w-err" role="alert"></p>
+   </form>
+  </aside>
+ </div>
+</main>
+<footer id="site-footer"></footer>
+<script src="site.js"></script>
+<script src="data.js"></script>
+<script src="forum.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ex not X · 留学生情感社区｜登录</title>
+<meta name="description" content="Ex not X：输入口令进入。">
+<link rel="stylesheet" href="site.css">
+<style>
+body{min-height:100vh;display:flex;flex-direction:column}
+.bar{border-bottom:1px solid var(--line);padding:18px 0 14px;text-align:center}
+main{flex:1;display:grid;grid-template-columns:auto 1fr;gap:70px;align-items:center;width:min(860px,100% - 48px);margin:0 auto;padding:60px 0}
+.circle{position:relative;width:300px;height:300px;border-radius:50%;overflow:visible}
+.circle .tag{position:absolute;top:50%;left:0;right:0;text-align:center;translate:0 -50%;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.circle .script{position:absolute;left:-40px;bottom:10px;font-size:104px;mix-blend-mode:normal;transform:rotate(-6deg);white-space:nowrap}
+h1{font-size:32px;margin:14px 0 8px;color:var(--ink);font-weight:800}
+.sub{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 34px}
+form{max-width:380px}
+.line-input{letter-spacing:.2em}
+.btn{margin-top:26px;min-width:200px;min-height:54px}
+.error{color:#b4232c;font-size:13px;min-height:1.3em;margin:10px 0 0}
+.shake{animation:shake .4s}
+@keyframes shake{20%,60%{translate:-8px 0}40%,80%{translate:8px 0}}
+@media (max-width:760px){main{grid-template-columns:1fr;gap:40px;text-align:center}.circle{width:220px;height:220px;margin:0 auto}.circle .script{font-size:80px;left:-10px}form{margin:0 auto}}
+</style>
+</head>
+<body>
+<div class="bar"><span class="logo"><span class="mark">EX NOT X</span><span class="sub" style="margin:4px 0 0;letter-spacing:.5em;font-size:10px">留学生情感社区</span></span></div>
+<main>
+ <div class="circle photo"><span class="tag">B&amp;W photo</span><span class="script" aria-hidden="true">Hello</span></div>
+ <section id="card" aria-labelledby="login-heading">
+  <p class="kicker">在进入之前 · Before you come in</p>
+  <h1 id="login-heading">说出暗号</h1>
+  <p class="sub">Say the passcode</p>
+  <form id="login-form" novalidate>
+   <label class="field-label" for="password">口令 · Passcode</label>
+   <input class="line-input" id="password" type="password" autocomplete="current-password" aria-describedby="login-error" autofocus>
+   <button class="btn solid" type="submit">进入 Enter</button>
+   <p id="login-error" class="error" role="alert"></p>
+  </form>
+ </section>
+</main>
+<footer class="site-footer slim on-dark"><div class="wrap"><p class="legal">© 2026 Ex not X · 无论你在哪个时区 · Wherever you are</p><div class="goodnight"><span class="script light">Good night</span><span class="brush">晚安</span></div></div></footer>
+<script>
+(()=>{
+// Prototype gate: a fixed passcode kept in the page. Not real security.
+const PASSWORD='JD',KEY='exnotx-auth';
+const next=new URLSearchParams(location.search).get('next');
+const target=next&&/^[\w.-]+\.html([?#].*)?$/.test(next)?next:'index.html';
+const form=document.querySelector('#login-form'),input=document.querySelector('#password'),error=document.querySelector('#login-error'),card=document.querySelector('#card');
+form.addEventListener('submit',e=>{
+ e.preventDefault();
+ if(input.value.trim()===PASSWORD){try{localStorage.setItem(KEY,'1')}catch{}error.textContent='';location.replace(target)}
+ else{error.textContent=input.value.trim()?'暗号不对，再想想 · Not quite':'先输入口令 · Enter the passcode';card.classList.remove('shake');void card.offsetWidth;card.classList.add('shake');input.select()}
+});
+})();
+</script>
+</body>
+</html>
